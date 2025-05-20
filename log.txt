@@ -1,0 +1,15 @@
+===== Début — 2025-05-19 19:58:24 =====
+[!] prison_wallbed01.mdl → version 49 : recompilation → 48
+💾 Sauvegardé : props_rpd\prison_wallbed01.mdl
+💾 Sauvegardé : props_rpd\prison_wallbed01.vvd
+💾 Sauvegardé : props_rpd\prison_wallbed01.dx90.vtx
+💾 Sauvegardé : props_rpd\prison_wallbed01.phy
+🔧 Décompilation : C:\Users\Alexis\Desktop\Crowbar_2023-02-16_0.74\models\props_rpd\prison_wallbed01.mdl
+🗑️ Suppression du fichier généré : prison_wallbed01.qc
+🗑️ Suppression du fichier généré : prison_wallbed01.smd
+🗑️ Suppression du dossier généré : prison_wallbed01_anims
+🗑️ Suppression du fichier généré : prison_wallbed01_physics.smd
+🛠️ Correction forcée du fichier prison_wallbed01.mdl → version 48
+✅ Compilation réussie : C:\Users\Alexis\Desktop\Crowbar_2023-02-16_0.74\models\props_rpd\prison_wallbed01.qc
+🧪 Version finale : 48
+===== Fin du traitement =====
