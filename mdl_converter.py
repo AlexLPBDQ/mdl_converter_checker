@@ -130,12 +130,12 @@ def restore_model_files(model_path):
 def decompile_and_recompile(model_path, working_dir):
     qc_filename = os.path.basename(model_path).replace(".mdl", ".qc")
     qc_path = os.path.join(working_dir, qc_filename)
-    already_decompiled = os.path.exists(qc_path)
 
     backup_model_files(model_path)
     before = snapshot_files(working_dir)
 
-    if not already_decompiled:
+    # Décompile toujours si .qc n'existe pas
+    if not os.path.exists(qc_path):
         log(f"🔧 Décompilation : {model_path}")
         subprocess.run([
             CROWBAR_PATH,
@@ -143,9 +143,10 @@ def decompile_and_recompile(model_path, working_dir):
             "-o", working_dir
         ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     else:
-        log(f"⚠️ {qc_filename} déjà présent → skip décompilation")
+        log(f"⚠️ {qc_filename} déjà présent → utilisation directe")
 
     if os.path.exists(qc_path):
+        # Injecte ou remplace $modelversion
         with open(qc_path, "r", encoding="utf-8") as f:
             lines = f.readlines()
 
@@ -161,6 +162,7 @@ def decompile_and_recompile(model_path, working_dir):
         with open(qc_path, "w", encoding="utf-8") as f:
             f.writelines(lines)
 
+        # Compile toujours, même si fichiers existaient
         result = subprocess.run(
             [studiomdl_path, qc_path],
             stdout=subprocess.PIPE,
